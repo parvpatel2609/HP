@@ -8,6 +8,8 @@ import gradeRoutes from './routes/gradeRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import cors from "cors";
 import path from "path";
+import {fileURLToPath} from "url";
+
 
 //configure env 
 dotenv.config();
@@ -16,7 +18,9 @@ dotenv.config();
 //database config
 connectDB();
 
-
+//esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 //rest object
 const app = express(); 
 
