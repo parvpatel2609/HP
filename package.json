@@ -6,6 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "keywords": [],
   "author": "Parv_Patel",
@@ -21,6 +24,7 @@
     "mongoose": "^7.3.1",
     "morgan": "^1.10.0",
     "node-cron": "^3.0.2",
-    "nodemailer": "^6.9.3"
+    "nodemailer": "^6.9.3",
+    "nodemon": "^3.0.1"
   }
 }
