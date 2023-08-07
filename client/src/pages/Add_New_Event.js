@@ -25,7 +25,7 @@ const Add_New_Event = () => {
                 toast.error("Please enter description");
             }
 
-            const res = await axios.post("/api/v1/event/add_new_event", {name, date, description});
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/event/add_new_event`, {name, date, description});
 
             if(res){
                 navigate("/event");

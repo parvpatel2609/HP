@@ -29,7 +29,7 @@ const Event_Participate_Details = () => {
     const getParticipate = async () => {
         const event_id = JSON.parse(localStorage.getItem("event_id"));
 
-        const res = await axios.post("/api/v1/event/details_participate", { event_id });
+        const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/event/details_participate`, { event_id });
 
         if (res.data) {
             // console.log(res.data);

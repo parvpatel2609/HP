@@ -28,7 +28,7 @@ const Delete_Course = () => {
   //get all courses
   const getCourse = async () => {
     try {
-      const { data } = await axios.get("/api/v1/course/courser_directory");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/course/courser_directory`);
       if (data.success) {
         setCourse(data.course);
       }
@@ -47,7 +47,7 @@ const Delete_Course = () => {
   const handleDeleteCourse = async (id) => {
     try {
       // console.log(id);
-      const res = await axios.delete(`/api/v1/course/delete_course/${id}`);
+      const res = await axios.delete(`${process.env.REACT_APP_API}/api/v1/course/delete_course/${id}`);
       // console.log(res.data);
       if (res.data.success) {
         toast.success(res.data.message);

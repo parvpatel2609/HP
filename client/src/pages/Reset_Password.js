@@ -26,7 +26,7 @@ const Reset_Password = () => {
                 const col_email = user.col_email;
                 const role = user.role;
                 // console.log(col_email, role, password);
-                const res = await axios.post(`/api/v1/auth/update_password`, {role, col_email, password});
+                const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/update_password`, {role, col_email, password});
                 if(res){
                     toast.success(res.data.message);
                     localStorage.removeItem('reset');

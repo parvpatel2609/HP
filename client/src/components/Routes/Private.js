@@ -11,7 +11,7 @@ export function PrivateRoute_Student() {
 
     useEffect(() => {
         const authCheck = async () => {
-            const res = await axios.get("/api/v1/auth/student-auth");
+            const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/student-auth`);
             if (res.data.ok) {
                 setOk(true);
             }
@@ -32,7 +32,7 @@ export function PrivateRoute_Admin() {
 
     useEffect(() => {
         const authCheck = async () => {
-            const res = await axios.get("/api/v1/auth/admin-auth");
+            const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/admin-auth`);
             // console.log(res, " printing_res")
             if (res.data.ok) {
                 setOk(true);
@@ -55,7 +55,7 @@ export function PrivateRoute_Professor() {
 
     useEffect(() => {
         const authCheck = async () => {
-            const res = await axios.get("/api/v1/auth/professor-auth");
+            const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/professor-auth`);
             if (res.data.ok) {
                 setOk(true);
             }

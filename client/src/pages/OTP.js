@@ -13,7 +13,7 @@ const OTP = () => {
     const handleSubmitOtp = async (e) => {
         e.preventDefault();
         // console.log(otp);
-        const res = await axios.post(`/api/v1/auth/compareOtp`, {otp});
+        const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/compareOtp`, {otp});
         if(res.data.success == true){
             toast.success(res.data.message);
             navigator("/reset_password");

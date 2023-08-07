@@ -28,7 +28,7 @@ const Delete_Event = () => {
     //get all events
     const getEvent = async () => {
         try {
-            const { data } = await axios.get("/api/v1/event/display_events");
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/event/display_events`);
             if (data.success) {
                 setEvents(data.event1);
             }
@@ -47,7 +47,7 @@ const Delete_Event = () => {
     const handleDeleteEvent = async (event_id) => {
         try {
             // console.log(event_id);
-            const res = await axios.post("/api/v1/event/delete_event", { event_id });
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/event/delete_event`, { event_id });
             if (res.data.success) {
                 toast.success(res.data.message);
                 window.location.reload();

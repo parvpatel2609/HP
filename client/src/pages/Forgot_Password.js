@@ -27,7 +27,7 @@ const Forgot_Password = () => {
                     toast.error("Please Select House of Student");
                 }
                 else {
-                    const res = await axios.post(`/api/v1/auth/forgot-password`, { role, house, col_email });
+                    const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, { role, house, col_email });
                     if (res.data.success) {
                         toast.success(res.data.message);
                         localStorage.setItem("reset", JSON.stringify(res.data));
@@ -37,7 +37,7 @@ const Forgot_Password = () => {
             }
 
             if (role === "Professor") {
-                const res = await axios.post(`/api/v1/auth/forgot-password`, { role, col_email });
+                const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, { role, col_email });
                 if (res.data.success) {
                     toast.success(res.data.message);
                     localStorage.setItem("reset", JSON.stringify(res.data));
@@ -46,7 +46,7 @@ const Forgot_Password = () => {
             }
 
             if (role === "Admin") {
-                const res = await axios.post(`/api/v1/auth/forgot-password`, { role, col_email });
+                const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, { role, col_email });
                 if (res.data.success) {
                     toast.success(res.data.message);
                     localStorage.setItem("reset", JSON.stringify(res.data));

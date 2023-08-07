@@ -36,7 +36,7 @@ const Update_Marks = () => {
 
             const id = JSON.parse(localStorage.getItem("course_id"));
 
-            const res = await axios.post("/api/v1/grade/get_student_details", { col_email, id });
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/grade/get_student_details`, { col_email, id });
 
             if (res.data) {
                 // console.log(res.data.student_enroll);
@@ -68,7 +68,7 @@ const Update_Marks = () => {
             if (marks >= 0 && marks <= 100) {
                 const course_id = JSON.parse(localStorage.getItem("course_id"));
 
-                const res = await axios.post("/api/v1/grade/update_marks", { id, marks, course_id });
+                const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/grade/update_marks`, { id, marks, course_id });
 
                 if (res.data) {
                     // console.log(res.data.student_enroll);

@@ -30,7 +30,7 @@ const Dashboard_Professor = () => {
     //checking registration is open or not
     const fetchData = async () => {
         try {
-            const response = await axios.get(`/api/v1/course/check_registration_time_on_or_not`);
+            const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/course/check_registration_time_on_or_not`);
             // console.log(response);
 
             if (response.data.d) {

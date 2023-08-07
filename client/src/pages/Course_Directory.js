@@ -28,7 +28,7 @@ const Course_Directory = () => {
     //get all courses
     const getCourse = async () => {
         try {
-            const { data } = await axios.get("/api/v1/course/courser_directory");
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/course/courser_directory`);
             if (data.success) {
                 setCourse(data.course);
             }

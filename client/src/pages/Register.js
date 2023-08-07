@@ -30,7 +30,7 @@ const Register = () => {
         if (role === "Student") {
           const house = getRandomString();
           // console.log(house);
-          const res = await axios.post(`/api/v1/auth/register`,
+          const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,
             { role, house, name, per_email, number, birth_date, col_email, password });
 
           if (res.data.success) {
@@ -43,7 +43,7 @@ const Register = () => {
         }
 
         if (role === "Admin") {
-          const res = await axios.post(`/api/v1/auth/register`,
+          const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,
           { role, name, per_email, number, birth_date, col_email, password });
 
           if (res.data.success) {
@@ -56,7 +56,7 @@ const Register = () => {
         }
 
         if (role === "Professor") {
-          const res = await axios.post(`/api/v1/auth/register`,
+          const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,
           { role, name, per_email, number, birth_date, col_email, password });
 
           if (res.data.success) {

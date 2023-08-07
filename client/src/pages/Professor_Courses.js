@@ -35,7 +35,7 @@ const Professor_Courses = () => {
       const { user } = JSON.parse(localStorage.getItem("auth"));
       const col_email = user.col_email;
 
-      const res = await axios.post("/api/v1/grade/professor_courses", { col_email });
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/grade/professor_courses`, { col_email });
       // console.log(res);
       if (res) {
         // console.log(res.data);
@@ -65,8 +65,7 @@ const Professor_Courses = () => {
       localStorage.setItem('course_id', JSON.stringify(id));
       // console.log(col_email);
 
-
-      const res = await axios.post("/api/v1/grade/enroll_student", { col_email, id });
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/grade/enroll_student`, { col_email, id });
 
       if (res.data.success) {
         // console.log(res.data.stu_enroll);

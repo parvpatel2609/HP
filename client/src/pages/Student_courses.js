@@ -32,7 +32,7 @@ const Student_courses = () => {
             const col_email = user.col_email;
             // console.log(col_email);
 
-            const res = await axios.post(`/api/v1/course/get_register_course`, { col_email });
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/course/get_register_course`, { col_email });
             if (res) {
                 // console.log(res.data);
                 setRegisterCourse(res.data.course);

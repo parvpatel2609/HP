@@ -33,7 +33,7 @@ const Sign_in = () => {
                         toast.error("Please Select House of Student");
                     }
                     else {
-                        const res = await axios.post(`/api/v1/auth/login`,
+                        const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`,
                             { role, house, col_email, password });
 
                         if (res.data.success) {
@@ -53,7 +53,7 @@ const Sign_in = () => {
                 }
 
                 if (role === "Admin") {
-                    const res = await axios.post(`/api/v1/auth/login`,
+                    const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`,
                         { role, col_email, password });
 
                     if (res.data.success) {
@@ -73,7 +73,8 @@ const Sign_in = () => {
                 }
 
                 if (role === "Professor") {
-                    const res = await axios.post(`/api/v1/auth/login`,
+                    console.log(process.env.REACT_APP_API);
+                    const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`,
                         { role, col_email, password });
 
                     if (res.data.success) {
@@ -101,13 +102,12 @@ const Sign_in = () => {
     }
 
 
-
     return (
         <Layout title={"Login-Hogwart Portal"}>
 
             <div className="px-4 py-5 my-5 text-center">
 
-                <img src="/image/hogwart_school.jpg" className="mb-3 sign" alt="Hogwart School" style={{ height: "50vh" }} />
+                <img src="/image/hogwart_school_logo.png" className="mb-3 sign img-fluid" alt="Hogwart School" style={{ height: "25vh" }} />
 
                 <div className="col-lg-6 mx-auto">
 

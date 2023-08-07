@@ -28,7 +28,7 @@ const Event = () => {
     //get all events
     const getEvent = async () => {
         try {
-            const { data } = await axios.get("/api/v1/event/display_events");
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/event/display_events`);
             if (data.success) {
                 setEvents(data.event1);
             }
@@ -59,7 +59,7 @@ const Event = () => {
             const { user } = JSON.parse(localStorage.getItem("auth"));
             const id = user._id;
 
-            const res = await axios.post("/api/v1/event/participate", { id, event_id });
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/event/participate`, { id, event_id });
 
             if (res) {
                 // console.log(res.data.event);

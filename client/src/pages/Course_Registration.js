@@ -32,7 +32,7 @@ const Course_Registration = () => {
     //checking registration is open or not
     const fetchData = async () => {
         try {
-            const response = await axios.get(`/api/v1/course/check_registration_time`);
+            const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/course/check_registration_time`);
             // console.log(response);
 
             if (response.data.d) {
@@ -70,7 +70,7 @@ const Course_Registration = () => {
     //get all courses
     const getCourse = async () => {
         try {
-            const { data } = await axios.get("/api/v1/course/courser_directory");
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/course/courser_directory`);
             if (data.success) {
                 setCourse(data.course);
             }
@@ -93,7 +93,7 @@ const Course_Registration = () => {
             const col_email = user.col_email;
             // console.log(col_email);
 
-            const res = await axios.post(`/api/v1/course/get_register_course`, { col_email });
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/course/get_register_course`, { col_email });
             if (res) {
                 // console.log(res.data);
                 setRegisterCourse(res.data.course);
@@ -118,7 +118,7 @@ const Course_Registration = () => {
             const col_email = user.col_email;
             // console.log(col_email);
 
-            const res = await axios.post(`/api/v1/course/add_course_student_register`, { col_email, id });
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/course/add_course_student_register`, { col_email, id });
 
             if (res.data.success === true) {
                 // console.log(res.data);
@@ -141,7 +141,7 @@ const Course_Registration = () => {
             const { user } = JSON.parse(localStorage.getItem("auth"));
             const col_email = user.col_email;
 
-            const res = await axios.post("/api/v1/course/drop_course_registration", { col_email, id });
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/course/drop_course_registration`, { col_email, id });
 
             if (res.data.success === true) {
                 // console.log(res.data);

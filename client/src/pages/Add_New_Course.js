@@ -23,7 +23,7 @@ const Add_New_Course = () => {
                 toast.error("Please enter credit greather than zero or zero");
             }
             else{
-                const res = await axios.post("/api/v1/course/add_new_course", {course_name, faculty, credit, description});
+                const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/course/add_new_course`, {course_name, faculty, credit, description});
                 if(res.data.success){
                     toast.success(res.data.message);
                     navigate("/course_directory");
@@ -34,9 +34,6 @@ const Add_New_Course = () => {
             // console.log(error);
             toast.error("Something went wrong to add new course");
         }
-
-        
-
     }
 
 

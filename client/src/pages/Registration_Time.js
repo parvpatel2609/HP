@@ -20,7 +20,7 @@ const Registration_Time = () => {
                 toast.error("Please select term. It is required");
             }
             else{
-                const res = await axios.post(`/api/v1/course/registration_time`, {term, startTime, endTime});
+                const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/course/registration_time`, {term, startTime, endTime});
                 if(res.data.success){
                     toast.success(res.data.message);
                     // console.log(res.data);
